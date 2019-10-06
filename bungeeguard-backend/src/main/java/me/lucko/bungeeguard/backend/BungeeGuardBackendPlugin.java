@@ -64,9 +64,9 @@ public class BungeeGuardBackendPlugin extends JavaPlugin implements Listener {
 
     @EventHandler
     public void onPlayerPreLogin(AsyncPlayerPreLoginEvent e) {
-        if (Bukkit.getPlayer(e.getUniqueId()).isOnline()) {
+        if (Bukkit.getPlayer(e.getName()) != null) {
             e.setLoginResult(AsyncPlayerPreLoginEvent.Result.KICK_OTHER);
-            e.setKickMessage("You have already in proxy.");
+            e.setKickMessage("You are already in the server.");
         }
     }
 
